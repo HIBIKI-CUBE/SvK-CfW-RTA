@@ -1,13 +1,19 @@
 <script lang="ts">
 	import { Spring } from 'svelte/motion';
 
-	const count = new Spring(0);
-	const offset = $derived(modulo(count.current, 1));
+  interface Props {
+    defaultCount: number;
+    onchange: (count: number) => void;
+  }
 
-	function modulo(n: number, m: number) {
-		// handle negative numbers
-		return ((n % m) + m) % m;
-	}
+  const { defaultCount, onchange }: Props = $props();
+
+	const count = new Spring(defaultCount);
+
+
+  $effect(() => {
+    onchange(count.target);
+  });
 </script>
 
 <div class="counter">
