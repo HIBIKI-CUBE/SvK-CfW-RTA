@@ -2,6 +2,17 @@
 	import Counter from './Counter.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcomeFallback from '$lib/images/svelte-welcome.png';
+  import type { PageServerData } from './$types';
+
+  const { data }: { data: PageServerData } = $props();
+
+  const onchange = (count: number) => {
+    fetch('/api/counter', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ count }),
+    });
+  };
 </script>
 
 <svelte:head>
@@ -25,7 +36,7 @@
 		try editing <strong>src/routes/+page.svelte</strong>
 	</h2>
 
-	<Counter />
+	<Counter defaultCount={data.count?.count ?? 0} {onchange}/>
 </section>
 
 <style>
