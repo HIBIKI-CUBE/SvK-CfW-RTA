@@ -8,3 +8,8 @@ site.bucket = "./.cloudflare/public"
 build.command = "bun run build"
 
 compatibility_flags = [ "nodejs_compat" ]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "rta"
+database_id = "d54546be-6c7f-4dc1-88a3-8c740485ff57"
