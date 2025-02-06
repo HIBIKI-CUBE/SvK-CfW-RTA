@@ -1,5 +1,5 @@
-name = "rta"
-compatibility_date = "2025-02-05"
+name = "rta-cooked"
+compatibility_date = "2025-02-06"
 
 main = "./.cloudflare/worker.js"
 
@@ -11,5 +11,5 @@ compatibility_flags = [ "nodejs_compat" ]
 
 [[d1_databases]]
 binding = "DB"
-database_name = "rta"
-database_id = "d54546be-6c7f-4dc1-88a3-8c740485ff57"
+database_name = "rta-cooked"
+database_id = "70144cff-3caa-46b9-a2a4-5f291702da8d"
